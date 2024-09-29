@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.nav-icon {
+		margin-left: 0 !important;
+		font-size: 20px;
+	}
+	.b-test {
+		border: 1px solid red;
+	}
+	.scroll-container {
+		overflow-y: auto;
+		padding: 10px;
+	}
+	.scroll-container::-webkit-scrollbar {
+		width: 7px;
+		background-color: rgb(217, 217, 217);
+		border-radius: 7px;
+	}
+	.scroll-container::-webkit-scrollbar-thumb {
+		background-color: #5c5dc7;
+		border-radius: 7px;
+	}
+}
