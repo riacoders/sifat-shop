@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
-import Navbar from './components/Navbar'
 import Homepage from './pages/homepage'
+import Product from './Components/Product/Product'
+import Navbar from './Components/Navbar'
+import Paynet from './Components/Card/Paynet'
 
 function App() {
 	return (
@@ -8,6 +10,8 @@ function App() {
 			<Navbar />
 			<Routes>
 				<Route path='/' element={<Homepage />} />
+				<Route path='/likes' element={<Product />} />
+				<Route path='/paynet' element={<Paynet/>} />
 			</Routes>
 		</div>
 	)
