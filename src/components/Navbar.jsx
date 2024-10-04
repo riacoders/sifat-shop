@@ -108,7 +108,7 @@ const Navbar = () => {
 									return (
 										<li className='py-2 border-b' key={index}>
 											<a
-												className='block flex items-center justify-between'
+												className=' flex items-center justify-between'
 												href='#'
 											>
 												{item.name}

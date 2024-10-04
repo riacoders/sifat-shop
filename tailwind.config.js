@@ -9,7 +9,7 @@ export default {
     extend: {
       colors:{
         customPurple: '#5c5dc7',
-      
+         footerColor:'#e2e2f8',
          fontFamily: 'Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif'
       }
     },
