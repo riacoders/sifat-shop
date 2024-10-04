@@ -4,6 +4,7 @@ import { BsCart2 } from 'react-icons/bs'
 import { FaRegHeart } from 'react-icons/fa'
 import { FiMenu } from 'react-icons/fi'
 import { IoChevronForward, IoSearch } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 import aksessuarlar from '../assets/image/aksessuarlar.jpg'
 import kiyim from '../assets/image/kiyim.jpg'
 import poyabzal from '../assets/image/poyabzal.jpg'
@@ -51,40 +52,27 @@ const Navbar = () => {
 
 					<div className='flex items-center space-x-4 text-white'>
 						<a href='#' className='flex items-center space-x-2'>
-							<button className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none'>
+							<button className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer'>
 								Login
 							</button>
-							<button className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none'>
+							<button className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer '>
 								Sign Up
 							</button>
 						</a>
 						<div className='flex space-x-4'>
-							<FaRegHeart className='text-2xl' />
-							<BsCart2 className='text-2xl' />
+							<Link to={'/likes'}>
+								<FaRegHeart className='text-2xl cursor-pointer' />
+							</Link>
+							<Link to={'/'}>
+								<BsCart2 className='text-2xl cursor-pointer' />
+							</Link>
 						</div>
-						<div className='flex items-center'>
-							<select className='text-white bg-transparent outline-none'>
-								<option value='ru' className='text-black'>
-									Рус
-								</option>
-								<option value='uz' className='text-black'>
-									O'zbek
-								</option>
-								<option value='en' className='text-black'>
-									English
-								</option>
-							</select>
+						<div className='flex items-center gap-3'>
+							<span className='cursor-pointer'>UZ</span>
+							<span className='text-slate-400 cursor-pointer'>ЎЗ</span>
+							<span className='text-slate-400 cursor-pointer'>РУ</span>
+							<span className='text-slate-400 cursor-pointer'>EN</span>
 						</div>
-						<a href='#' className='flex items-center space-x-1'>
-							<select className='text-white bg-transparent outline-none'>
-								<option value='ru' className='text-black'>
-									USD ($)
-								</option>
-								<option value='uz' className='text-black'>
-									UZS (sum)
-								</option>
-							</select>
-						</a>
 					</div>
 				</div>
 			</nav>
