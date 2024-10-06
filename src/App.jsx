@@ -8,7 +8,7 @@ import Likes from './pages/likes'
 import Register from './pages/register'
 function App() {
 	return (
-		<div className='App'>
+		<div className='relative'>
 			<Navbar />
 			<Routes>
 				<Route path='/' element={<Homepage />} />

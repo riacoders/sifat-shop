@@ -1,26 +1,32 @@
 import { useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { BsCart2 } from 'react-icons/bs'
-import { FaRegHeart } from 'react-icons/fa'
+import { FaRegHeart, FaRegUser } from 'react-icons/fa'
 import { FiMenu } from 'react-icons/fi'
-import { IoChevronForward, IoSearch } from 'react-icons/io5'
+import { IoSearch } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
-import aksessuarlar from '../assets/image/aksessuarlar.jpg'
-import kiyim from '../assets/image/kiyim.jpg'
-import poyabzal from '../assets/image/poyabzal.jpg'
-import logo from '../assets/logo.png'
-import { categories } from '../utils'
+
+import { MdOutlineShoppingBag } from 'react-icons/md'
+import { PiMagnifyingGlassBold } from 'react-icons/pi'
+import logoNoText from '../assets/logo-blue.png'
+import logo from '../assets/logo-with-row-text.png'
+import NavCategory from './nav-category'
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const [activeTab, setActiveTab] = useState('tab1')
+
+	const handleActiveTab = tab => {
+		setActiveTab(tab)
+	}
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen)
 	}
 
 	return (
-		<div>
-			<nav className='bg-customPurple  p-4 '>
+		<div className='w-full fixed md:top-0 bottom-0 left-0 z-10'>
+			<nav className='bg-customPurple  p-2 md:block hidden'>
 				<div className='max-w-7xl flex items-center justify-between  gap-4 m-auto'>
 					<div className='text-white font-semibold text-2xl tracking-widest'>
 						<Link to={'/'}>
@@ -82,403 +88,82 @@ const Navbar = () => {
 				</div>
 			</nav>
 
-			{isMenuOpen && (
-				<div className='container  px-4  py-5 max-w-7xl m-auto h-[82vh]  '>
-					<div className='flex space-x-8'>
-						{/* Menyu qismi */}
-						<div className='bg-white  rounded-lg p-5 w-1/4   scroll-container'>
-							<h4
-								style={{
-									fontFamily:
-										'Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif',
-								}}
-								className='text-slate-500 uppercase'
-							>
-								Toifalar
-							</h4>
-							<ul className='text-gray-700 max-h-[30rem]'>
-								{categories.map((item, index) => {
-									return (
-										<li className='py-2 border-b' key={index}>
-											<a
-												className=' flex items-center justify-between'
-												href='#'
-											>
-												{item.name}
+			{/* for mobile */}
+			<nav className='bg-white  p-4 block md:hidden'>
+				<ul className='list-none flex items-center justify-between gap-4'>
+					<li
+						className='flex flex-col items-center'
+						onClick={() => handleActiveTab('tab1')}
+					>
+						<Link
+							to='/'
+							className={` ${
+								activeTab === 'tab1' ? 'text-blue-600' : 'text-black'
+							}  text-[12px] flex flex-col items-center gap-1 `}
+						>
+							<img className='w-[25px]' src={logoNoText} alt='l' /> Bosh sahifa
+						</Link>
+					</li>
+					<li
+						className='flex flex-col items-center'
+						onClick={() => handleActiveTab('tab2')}
+					>
+						<Link
+							to='/category'
+							className={` ${
+								activeTab === 'tab2' ? 'text-blue-600' : 'text-black'
+							}  text-[12px] flex flex-col items-center gap-1 `}
+						>
+							<PiMagnifyingGlassBold className='text-2xl' />
+							Katalog
+						</Link>
+					</li>
+					<li
+						className='flex flex-col items-center'
+						onClick={() => handleActiveTab('tab3')}
+					>
+						<Link
+							to='/cart'
+							className={`${
+								activeTab === 'tab3' ? 'text-blue-600' : 'text-black'
+							}  text-[12px] flex flex-col items-center gap-1 `}
+						>
+							<MdOutlineShoppingBag className='text-2xl' />
+							Savat
+						</Link>
+					</li>
+					<li
+						className='flex flex-col items-center'
+						onClick={() => handleActiveTab('tab4')}
+					>
+						<Link
+							to='/likes'
+							className={` ${
+								activeTab === 'tab4' ? 'text-blue-600' : 'text-black'
+							}  text-[12px] flex flex-col items-center gap-1 `}
+						>
+							<FaRegHeart className='text-xl' />
+							Sevimli
+						</Link>
+					</li>
+					<li
+						className='flex flex-col items-center'
+						onClick={() => handleActiveTab('tab5')}
+					>
+						<a
+							href='#'
+							className={` ${
+								activeTab === 'tab5' ? 'text-blue-600' : 'text-black'
+							}  text-[12px] flex flex-col items-center gap-1 `}
+						>
+							<FaRegUser className='text-xl' />
+							Profil
+						</a>
+					</li>
+				</ul>
+			</nav>
 
-												<IoChevronForward />
-											</a>
-										</li>
-									)
-								})}
-							</ul>
-						</div>
-
-						<div className='w-3/4 max-h-[35rem] scroll-container'>
-							<h3 className='text-2xl font-bold mb-8'>Ayollar uchun</h3>
-							<div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-								{/* Kiyimlar */}
-								<div className='text-center'>
-									<img
-										src={kiyim}
-										alt='Kiyimlar'
-										className='mx-auto mb-4 w-32 h-32 object-cover'
-									/>
-									<h4 className='font-bold text-lg mb-4'>Kiyimlar</h4>
-									<ul className='text-left space-y-2'>
-										<li>
-											<a
-												href="/Ko'ylaklar"
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Ko'ylaklar
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Shimlar va jinsilar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Shimlar va jinsilar (892)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/ichki kiyimlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												{' '}
-												Ichki kiyimlar (951)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Боди'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Боди (6)
-											</a>{' '}
-										</li>
-										<li>
-											{' '}
-											<a
-												href='/Bluzkalar va tunikalar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Bluzkalar va tunikalar (633)
-											</a>
-										</li>
-										<li>
-											{' '}
-											<a
-												href='/Futbolkalar va toplar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Futbolkalar va toplar (599)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Ustki kiyimlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Ustki kiyimi (286)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Kardiganlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Kardiganlar va sviterlar (345)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/svishotlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Xudi va svitshotlar (71)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/yubkalar va shortlarlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Yubkalar va shortalar (197)
-											</a>
-										</li>
-									</ul>
-								</div>
-
-								{/* Poyabzal */}
-								<div className='text-center'>
-									<img
-										src={poyabzal}
-										alt='Poyabzal'
-										className='mx-auto mb-4 w-32 h-32 object-cover'
-									/>
-									<h4 className='font-bold text-lg mb-4'>Poyabzal</h4>
-									<ul className='text-left space-y-2'>
-										<li>
-											<a
-												href='/Tuflilar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Tuflilar (574)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Krossovkalar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Krossovkalar (187)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Bosonojkalar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Bosonojkalar (269)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Shippaklar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Shippaklar (160)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Sandallar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Sandallar (62)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Mokasinlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Mokasinlar (90)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Baletkalar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Baletkalar (47)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Домашние тапочки'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Домашние тапочки (26)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Kedalar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Kedalar (75)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Botinkalar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Botinkalar (296)
-											</a>
-										</li>
-									</ul>
-								</div>
-
-								<div className='text-center'>
-									<img
-										src={aksessuarlar}
-										alt='Aksessuarlar'
-										className='mx-auto mb-4 w-32 h-32 object-cover'
-									/>
-									<p className='font- text-lg mb-4'>Aksessuarlar</p>
-									<ul className='text-left space-y-2'>
-										<li>
-											<a
-												href='/Sumkalar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Sumkalar (780)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Расчески'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Расчески (3)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Soatlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Soatlar (8)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Ryukzaklar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Ryukzaklar (27)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Klatchlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Klatchlar (25)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Hamyonlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Hamyonlar (55)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Bosh kiyimlari'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Bosh kiyimlari (27)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Taqinchoqlar'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Taqinchoqlar (86)
-											</a>
-										</li>
-										<li>
-											<a
-												href='/Bijuteriya'
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Bijuteriya (81)
-											</a>
-										</li>
-										<li>
-											<a
-												href="/Qo'lqoplar"
-												className='hover:text-blue-500 hover:transition-all duration-500'
-											>
-												Qo'lqoplar (17)
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			)}
+			{isMenuOpen && <NavCategory />}
 		</div>
 	)
 }
