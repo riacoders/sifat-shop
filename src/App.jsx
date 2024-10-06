@@ -3,9 +3,9 @@ import Homepage from './pages/homepage'
 import Product from './Components/Product/Product'
 import Navbar from './Components/Navbar'
 import Paynet from './Components/Card/Paynet'
+
 import Shop from './Components/Shop'
 import Register from './Components/Register'
-
 function App() {
 	return (
 		<div className='App'>
@@ -17,7 +17,7 @@ function App() {
 				<Route path='/shop' element={<Shop/>} />
 				<Route path='/register' element={<Register/>}/>
 			</Routes>
-			
+
 		</div>
 	)
 }
