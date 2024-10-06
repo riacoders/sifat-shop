@@ -23,7 +23,9 @@ const Navbar = () => {
 			<nav className='bg-customPurple  p-4 '>
 				<div className='max-w-7xl flex items-center justify-between  gap-4 m-auto'>
 					<div className='text-white font-semibold text-2xl tracking-widest'>
-						<img src={logo} alt='Company Logo' className='h-14' />
+						<Link to={'/'}>
+							<img src={logo} alt='Company Logo' className='h-14' />
+						</Link>
 					</div>
 
 					<div
@@ -55,15 +57,18 @@ const Navbar = () => {
 							<button className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer'>
 								Login
 							</button>
-							<button className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer '>
+							<Link
+								to={'/register'}
+								className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer '
+							>
 								Sign Up
-							</button>
+							</Link>
 						</a>
 						<div className='flex space-x-4'>
 							<Link to={'/likes'}>
 								<FaRegHeart className='text-2xl cursor-pointer' />
 							</Link>
-							<Link to={'/'}>
+							<Link to={'/cart'}>
 								<BsCart2 className='text-2xl cursor-pointer' />
 							</Link>
 						</div>

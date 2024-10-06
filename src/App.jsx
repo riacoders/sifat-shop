@@ -1,17 +1,21 @@
 import { Route, Routes } from 'react-router-dom'
-import Paynet from './Components/Card/Paynet'
-import Navbar from './Components/Navbar'
-import Product from './Components/Product/Product'
-import Footer from './components/Footer'
+import Footer from './components/footer'
+import Navbar from './components/navbar'
+import Cart from './pages/cart'
+import CheckOut from './pages/checkout'
 import Homepage from './pages/homepage'
+import Likes from './pages/likes'
+import Register from './pages/register'
 function App() {
 	return (
 		<div className='App'>
 			<Navbar />
 			<Routes>
 				<Route path='/' element={<Homepage />} />
-				<Route path='/likes' element={<Product />} />
-				<Route path='/paynet' element={<Paynet />} />
+				<Route path='/likes' element={<Likes />} />
+				<Route path='/checkout' element={<CheckOut />} />
+				<Route path='/register' element={<Register />} />
+				<Route path='/cart' element={<Cart />} />
 			</Routes>
 			<Footer />
 		</div>
