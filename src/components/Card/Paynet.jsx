@@ -7,6 +7,7 @@ const Paynet = () => {
   const togglePromoInput = () => {
     setPromoInputVisible(!promoInputVisible);
   };
+
   const products = [
     {
       id: 1,
@@ -17,15 +18,15 @@ const Paynet = () => {
       status: 'На складе Bulavka',
       statusColor: 'green',
     },
-  
-]
+  ];
+
   return (
-    <div className="w-full flex items-center justify-center gap-64 h-full ">
-      <div className="card">
-        <br />
+    <div className="max-w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-64 h-full p-4">
+   
+      <div className="w-full lg:w-3/5 bg-white shadow-md rounded-md p-6">
         <h1 className="font-bold text-2xl text-center">Buyurtmani rasmiylashtirish</h1>
-        <br />
-        <div className="max-w-xl mx-auto p-2 border-2">
+
+        <div className="max-w-xl mx-auto p-2 border-2 mt-4">
           <div className="bg-gray-100 border-l-4 border-orange-400 p-4 mb-6">
             <MdNotificationImportant className="text-orange-400 text-2xl" />
             <p className="text-sm text-orange-500">
@@ -34,11 +35,8 @@ const Paynet = () => {
             </p>
           </div>
         </div>
-        <br />
-        <button className="text-lg font-semibold w-40 mb-4 p-2 bg-customPurple text-white rounded-md hover:bg-customPurple transition duration-200">
-          Buyurtma berish
-        </button>
-        <div className="w-full mx-auto bg-white shadow-md rounded-md p-6">
+
+        <div className="w-full mx-auto bg-white shadow-md rounded-md p-6 mt-4">
           <h2 className="text-xl font-semibold mb-4">Адрес доставки</h2>
 
           <label className="block mb-2 text-sm font-medium text-gray-700">Город</label>
@@ -82,34 +80,31 @@ const Paynet = () => {
           ></textarea>
 
           <button className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Buyurtma berish</button>
-        </div> <br /> <br /> <br />
-        <div className="max-w-2xl mx-auto bg-white shadow-md rounded-md p-6 border-solid border-2 border-red-700">
-      <h2 className="text-xl font-semibold mb-4">Товары в заказе</h2>
-      
-      {products.map((product) => (
-        <div key={product.id} className="flex items-center justify-between mb-4">
-          <div className="flex items-center">
-            <img 
-              src={product.image} 
-              alt={product.name} 
-              className="w-16 h-16 object-cover rounded-md mr-4" 
-            />
-            <div>
-              <p className="text-sm font-medium">{product.quantity} x {product.name}</p> 
-              <p className={`text-xs font-medium text-${product.statusColor}-500`}>
-                {product.status}
-              </p>
-            </div>
-          </div>
-          <p className="text-sm font-medium">{product.price}</p>
         </div>
-      ))}
 
-      
-    </div>
+        <div className="max-w-2xl mx-auto bg-white shadow-md rounded-md p-6 border-solid border-2 border-red-700 mt-6">
+          <h2 className="text-xl font-semibold mb-4">Товары в заказе</h2>
+          {products.map((product) => (
+            <div key={product.id} className="flex items-center justify-between mb-4">
+              <div className="flex items-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-16 h-16 object-cover rounded-md mr-4"
+                />
+                <div>
+                  <p className="text-sm font-medium">{product.quantity} x {product.name}</p>
+                  <p className={`text-xs font-medium text-${product.statusColor}-500`}>{product.status}</p>
+                </div>
+              </div>
+              <p className="text-sm font-medium">{product.price}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="w-80  bg-white shadow-md rounded-md p-6">
+    
+      <div className="w-full lg:w-1/4 bg-white shadow-md rounded-md p-6">
         <h2 className="text-lg font-semibold mb-4">Корзина</h2>
 
         <div className="mb-4">
@@ -139,7 +134,7 @@ const Paynet = () => {
 
         <div className="text-center">
           <button onClick={togglePromoInput} className="text-indigo-500 hover:underline focus:outline-none">
-          Chegirma uchun promo-kod bormi?
+            Chegirma uchun promo-kod bormi?
           </button>
         </div>
 
@@ -155,7 +150,6 @@ const Paynet = () => {
         )}
       </div>
     </div>
-    
   );
 };
 
