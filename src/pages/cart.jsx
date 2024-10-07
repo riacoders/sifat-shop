@@ -3,7 +3,7 @@ import { MdDelete } from 'react-icons/md'
 
 const Cart = () => {
 	return (
-		<div className='container mx-auto p-4 flex flex-col lg:flex-row items-start justify-around gap-4'>
+		<div className='container mx-auto p-4 flex flex-col lg:flex-row items-start justify-around gap-4 md:mt-24  md:p-0 mb-20 md:mb-0 bg-white'>
 			<div className='w-full lg:w-2/4'>
 				<h2 className='md:text-2xl text-lg font-semibold mb-6 '>
 					Savatda 1 ta narsa bor

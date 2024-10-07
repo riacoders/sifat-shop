@@ -41,7 +41,7 @@ const Likes = () => {
 		},
 	]
 	return (
-		<div className='max-w-7xl flex flex-col gap-3 m-auto p-3 md:pl-0 md:pr-0 pl-2 pr-2 md:mt-24  md:p-0 mb-20 md:mb-0'>
+		<div className='max-w-7xl flex flex-col gap-3 m-auto p-3 md:pl-0 md:pr-0 pl-2 pr-2 md:mt-24  md:p-0 mb-20 md:mb-0 bg-white'>
 			<h1 className='md:text-3xl text-lg font-semibold'>Tanlangan tovarlar</h1>
 			<div className='grid md:grid-cols-5 grid-cols-2 gap-3 '>
 				{products.map((item, index) => {
