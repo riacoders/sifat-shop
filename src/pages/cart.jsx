@@ -69,7 +69,7 @@ const Cart = () => {
 				</div>
 
 				<div className='mb-4'>
-					<p className='flex justify-between text-lg font-semibold text-gray-900 text-base'>
+					<p className='flex justify-between md:text-lg font-semibold text-gray-900 text-base'>
 						<span>Итого к оплате:</span>
 						<span>740 980 сум</span>
 					</p>
@@ -78,7 +78,7 @@ const Cart = () => {
 					</p>
 				</div>
 
-				<button className='w-full bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600 mb-4 texxt-base'>
+				<button className='w-full bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600 mb-4 text-base'>
 					Оформить заказ
 				</button>
 

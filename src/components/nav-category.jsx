@@ -1,4 +1,5 @@
 import { IoChevronForward } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 import aksessuarlar from '../assets/image/aksessuarlar.jpg'
 import kiyim from '../assets/image/kiyim.jpg'
 import poyabzal from '../assets/image/poyabzal.jpg'
@@ -6,7 +7,7 @@ import { categories } from '../utils'
 
 function NavCategory() {
 	return (
-		<div className='container  px-4  py-5 max-w-7xl m-auto h-[82vh]  '>
+		<div className='container  px-4  py-5  m-auto h-full bg-white'>
 			<div className='flex space-x-8'>
 				{/* Menyu qismi */}
 				<div className='bg-white  rounded-lg p-5 w-1/4   scroll-container'>
@@ -47,12 +48,12 @@ function NavCategory() {
 							<h4 className='font-bold text-lg mb-4'>Kiyimlar</h4>
 							<ul className='text-left space-y-2'>
 								<li>
-									<a
-										href="/Ko'ylaklar"
+									<Link
+										to='/category-item'
 										className='hover:text-blue-500 hover:transition-all duration-500'
 									>
 										Ko'ylaklar
-									</a>
+									</Link>
 								</li>
 								<li>
 									<a
