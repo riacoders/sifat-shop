@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
+import CardItem from './components/CardItem'
+import Cards from './components/Cards'
 import Footer from './components/footer'
 import Navbar from './components/navbar'
 import Cart from './pages/cart'
@@ -18,8 +20,7 @@ function App() {
 				<Route path='/checkout' element={<CheckOut />} />
 				<Route path='/register' element={<Register />} />
 				<Route path='/cart' element={<Cart />} />
-				<Route path='/contact' element={<Contact/>}></Route>
-				<Route path='/notfound' element={<NotFound/>}></Route>
+
 			</Routes>
 			<Footer />
 		</div>
