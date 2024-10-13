@@ -69,7 +69,9 @@ const Cart = () => {
 				</div>
 
 				<div className='mb-4'>
+
 					<p className='flex justify-between md:text-lg font-semibold text-gray-900 text-base'>
+
 						<span>Итого к оплате:</span>
 						<span>740 980 сум</span>
 					</p>

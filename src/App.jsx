@@ -8,6 +8,8 @@ import CheckOut from './pages/checkout'
 import Homepage from './pages/homepage'
 import Likes from './pages/likes'
 import Register from './pages/register'
+import Contact from './components/Contact'
+import NotFound from './pages/NotFound'
 function App() {
 	return (
 		<div className='relative'>
@@ -18,8 +20,7 @@ function App() {
 				<Route path='/checkout' element={<CheckOut />} />
 				<Route path='/register' element={<Register />} />
 				<Route path='/cart' element={<Cart />} />
-				<Route path='/card' element={<Cards />} />
-				<Route path='/carditem' element={<CardItem />} />
+
 			</Routes>
 			<Footer />
 		</div>
