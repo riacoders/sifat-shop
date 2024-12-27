@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Contact from './pages/contact'
-import Footer from './components/footer'
+import Footer from './components/Footer'
 import Cart from './pages/cart'
 import CheckOut from './pages/checkout'
 import Likes from './pages/likes'
