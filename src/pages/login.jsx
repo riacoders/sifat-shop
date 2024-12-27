@@ -58,7 +58,7 @@ const Login = () => {
 					</div>
 
 					<div className='w-full flex items-center justify-center'>
-						<button className='py-2 px-10 rounded-full bg-violet-500 text-white font-semibold'>
+						<button className='py-2 px-10 rounded-full bg-blue-700 text-white font-semibold'>
 							Login
 						</button>
 					</div>
