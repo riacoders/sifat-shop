@@ -43,7 +43,7 @@ function Banner() {
 				infinite
 				disableButtonsControls
 			/>
-			<div className='flex items-center justify-between absolute md:top-[200px] top-[100px] max-w-7xl w-full pr-8 pl-8 '>
+			<div className='flex items-center justify-between absolute md:top-[300px] top-[100px] max-w-7xl w-full pr-8 pl-8 '>
 				<span className='hidden md:block'>
 					<span className='w-8 h-8 rounded-full bg-white flex items-center justify-center text-blue-500 cursor-pointer '>
 						<GrPrevious onClick={() => carouselRef.current.slidePrev()} />

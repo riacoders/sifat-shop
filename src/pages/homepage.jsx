@@ -6,7 +6,7 @@ import ProductCards from '../components/product-cards'
 
 function HomePage() {
 	return (
-		<div className='flex flex-col max-w-7xl m-auto gap-6 p-3 md:mt-20  md:p-0 mb-20 md:mb-0 bg-white'>
+		<div className='flex flex-col max-w-7xl m-auto gap-6 p-3 md:mt-5  md:p-0 mb-20 md:mb-0 bg-white'>
 			<div className='flex md:hidden'>
 				<div className='flex items-center bg-gray-100 rounded-full w-full  p-1'>
 					<input
