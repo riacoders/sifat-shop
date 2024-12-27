@@ -4,7 +4,7 @@ import CategoryCards from '../components/category-cards'
 import CategoryProducts from '../components/category-products'
 import ProductCards from '../components/product-cards'
 
-function Homepage() {
+function HomePage() {
 	return (
 		<div className='flex flex-col max-w-7xl m-auto gap-6 p-3 md:mt-20  md:p-0 mb-20 md:mb-0 bg-white'>
 			<div className='flex md:hidden'>
@@ -58,4 +58,4 @@ function Homepage() {
 	)
 }
 
-export default Homepage
+export default HomePage

@@ -1,17 +1,16 @@
 import { Route, Routes } from 'react-router-dom'
-import { Footer, Navbar } from './components'
-import {
-	Cart,
-	Category,
-	CheckOut,
-	Contact,
-	HomePage,
-	Likes,
-	Login,
-	NotFound,
-	Product,
-	Register,
-} from './pages'
+import Contact from './pages/contact'
+import Footer from './components/footer'
+import Cart from './pages/cart'
+import CheckOut from './pages/checkout'
+import Likes from './pages/likes'
+import NotFound from './pages/not-found'
+import Register from './pages/register'
+import Navbar from './components/Navbar'
+import Login from './pages/login'
+import Category from './pages/category'
+import Product from './pages/product'
+import HomePage from './pages/homepage'
 function App() {
 	return (
 		<div className='relative'>
