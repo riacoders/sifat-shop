@@ -1,30 +1,31 @@
 import { Route, Routes } from 'react-router-dom'
-import CardItem from './components/CardItem'
-import Cards from './components/Cards'
-import Contact from './components/Contact'
-import Footer from './components/footer'
-import Cart from './pages/cart'
-import CheckOut from './pages/checkout'
-import Homepage from './pages/homepage'
-import Likes from './pages/likes'
-import NotFound from './pages/NotFound'
-import Register from './pages/register'
-import Navbar from './components/Navbar'
-import Login from './pages/login'
+import { Footer, Navbar } from './components'
+import {
+	Cart,
+	Category,
+	CheckOut,
+	Contact,
+	HomePage,
+	Likes,
+	Login,
+	NotFound,
+	Product,
+	Register,
+} from './pages'
 function App() {
 	return (
 		<div className='relative'>
 			<Navbar />
 			<Routes>
-				<Route path='/' element={<Homepage />} />
+				<Route path='/' element={<HomePage />} />
 				<Route path='/likes' element={<Likes />} />
 				<Route path='/checkout' element={<CheckOut />} />
 				<Route path='/register' element={<Register />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/cart' element={<Cart />} />
 				<Route path='/contact' element={<Contact />} />
-				<Route path='/cards' element={<Cards />} />
-				<Route path='/carditem' element={<CardItem />} />
+				<Route path='/category' element={<Category />} />
+				<Route path='/product' element={<Product />} />
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 			<Footer />

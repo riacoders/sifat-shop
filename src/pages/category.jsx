@@ -4,7 +4,7 @@ import Tooltip from '@mui/material/Tooltip'
 import PropTypes from 'prop-types'
 import { CiHeart } from 'react-icons/ci'
 
-const Cards = () => {
+const Category = () => {
 	function ValueLabelComponent(props) {
 		const { children, value } = props
 
@@ -244,4 +244,4 @@ const Cards = () => {
 	)
 }
 
-export default Cards
+export default Category

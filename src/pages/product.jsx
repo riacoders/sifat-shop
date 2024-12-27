@@ -5,7 +5,7 @@ import { IoShareSocialSharp } from 'react-icons/io5'
 import { PiCoatHangerLight } from 'react-icons/pi'
 import terra_pro from '../assets/image/terra pro.jpg'
 
-const CardItem = () => {
+const Product = () => {
 	const [selectedSize, setSelectedSize] = useState(50)
 
 	const handleSizeChange = size => {
@@ -228,4 +228,4 @@ const CardItem = () => {
 	)
 }
 
-export default CardItem
+export default Product
