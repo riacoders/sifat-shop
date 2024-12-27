@@ -2,34 +2,22 @@ import { useState } from 'react'
 import { LuEye, LuEyeOff } from 'react-icons/lu'
 import logo from '../assets/logo_only.png'
 
-const Register = () => {
+const Login = () => {
 	const [passwordVisible, setPasswordVisible] = useState(true)
-	const [rePasswordVisible, setRePasswordVisible] = useState(true)
 
 	return (
 		<div className='flex items-center justify-center flex-col gap-10 p-6 mt-5'>
 			<div className='w-full grid grid-cols-5 gap-10 bg-blue-400 py-5 px-10 rounded-md'>
 				<div className='flex flex-col gap-3 col-span-3'>
 					<img src={logo} alt='logo' className='w-20' />
-					<h1 className='text-white text-4xl font-bold'>Ro'yxatdan o'tish</h1>
+					<h1 className='text-white text-4xl font-bold'>Kirish</h1>
 					<p className='text-white text-justify'>
 						Buyurtmalar tarixi va mahsulot ko'rinishini saqlash, <br />
 						buyurtma holatini kuzatish, manzillar kitobini boshqarish <br />
-						va savatdagi narsalarni saqlash uchun ro'yxatdan o'ting!
+						va savatdagi narsalarni saqlash uchun tizimga kiring!
 					</p>
 				</div>
 				<div className='flex flex-col gap-3 bg-white p-5 rounded-md col-span-2'>
-					<div className='flex flex-col gap-1'>
-						<label htmlFor='name' className='text-slate-500 text-sm'>
-							Ismingizni kiriting
-						</label>
-						<input
-							type='text'
-							id='name'
-							placeholder='Name'
-							className='p-2 bg-[#fafafa] rounded-sm border border-solid border-[#00000012] text-sm outline-none'
-						/>
-					</div>
 					<div className='flex flex-col gap-1'>
 						<label htmlFor='email' className='text-slate-500 text-sm'>
 							Emailingizni kiriting
@@ -68,42 +56,10 @@ const Register = () => {
 							/>
 						</span>
 					</div>
-					<div className='flex flex-col gap-1'>
-						<label htmlFor='repassword' className='text-slate-500 text-sm'>
-							Parolni takrorlang
-						</label>
-						<span className='p-2 bg-[#fafafa] rounded-sm border border-solid border-[#00000012 flex gap-3 '>
-							<input
-								type={rePasswordVisible ? 'password' : 'text'}
-								id='repassword'
-								placeholder='Parol'
-								className='text-sm outline-none w-full bg-transparent'
-							/>
-							<LuEye
-								style={
-									rePasswordVisible ? { display: 'block' } : { display: 'none' }
-								}
-								size={24}
-								onClick={() => setRePasswordVisible(false)}
-							/>
-							<LuEyeOff
-								style={
-									rePasswordVisible ? { display: 'none' } : { display: 'block' }
-								}
-								size={24}
-								onClick={() => setRePasswordVisible(true)}
-							/>
-						</span>
-					</div>
-					<div className='flex items-center gap-1 justify-center'>
-						<input type='checkbox' name='text' id='text' />
-						<label htmlFor='text' className='text-slate-500 text-sm'>
-							ommaviy oferta shartlarini qabul qilaman
-						</label>
-					</div>
+
 					<div className='w-full flex items-center justify-center'>
 						<button className='py-2 px-10 rounded-full bg-violet-500 text-white font-semibold'>
-							Register
+							Login
 						</button>
 					</div>
 				</div>
@@ -129,4 +85,4 @@ const Register = () => {
 	)
 }
 
-export default Register
+export default Login

@@ -7,7 +7,7 @@ import { categories } from '../utils'
 
 function NavCategory() {
 	return (
-		<div className='container  px-4  py-5  m-auto h-full bg-white'>
+		<div className='container px-4 py-5 m-auto h-screen bg-white sticky top-20'>
 			<div className='flex space-x-8'>
 				{/* Menyu qismi */}
 				<div className='bg-white  rounded-lg p-5 w-1/4   scroll-container'>

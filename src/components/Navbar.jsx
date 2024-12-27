@@ -25,7 +25,10 @@ const Navbar = () => {
 	}
 
 	return (
-		<div className='w-full fixed md:top-0 bottom-0 left-0 z-10'>
+		<div
+			className='w-full  md:top-0 bottom-0 left-0 z-10'
+			style={isMenuOpen ? { position: 'fixed' } : null}
+		>
 			<nav className='bg-customPurple  p-2 md:block hidden'>
 				<div className='max-w-7xl flex items-center justify-between  gap-4 m-auto'>
 					<div className='text-white font-semibold text-2xl tracking-widest'>
@@ -57,19 +60,19 @@ const Navbar = () => {
 						/>
 						<IoSearch className='text-xl cursor-pointer' />
 					</div>
-
 					<div className='flex items-center space-x-4 text-white'>
-						<a href='#' className='flex items-center space-x-2'>
-							<button className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer'>
-								Login
-							</button>
-							<Link
-								to={'/register'}
-								className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer '
-							>
-								Sign Up
-							</Link>
-						</a>
+						<Link
+							to={'/login'}
+							className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer '
+						>
+							Sign In
+						</Link>
+						<Link
+							to={'/register'}
+							className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 hover:transition-all duration-500 focus:outline-none cursor-pointer '
+						>
+							Sign Up
+						</Link>
 						<div className='flex space-x-4'>
 							<Link to={'/likes'}>
 								<FaRegHeart className='text-2xl cursor-pointer' />
@@ -87,7 +90,6 @@ const Navbar = () => {
 					</div>
 				</div>
 			</nav>
-
 			{/* for mobile */}
 			<nav className='bg-white  p-4 block md:hidden'>
 				<ul className='list-none flex items-center justify-between gap-4'>
@@ -162,7 +164,6 @@ const Navbar = () => {
 					</li>
 				</ul>
 			</nav>
-
 			{isMenuOpen && <NavCategory />}
 		</div>
 	)
