@@ -1,10 +1,44 @@
 import { useState } from 'react'
 import { LuEye, LuEyeOff } from 'react-icons/lu'
 import logo from '../assets/logo_only.png'
+import axios from 'axios'
+import API_CONFIG from '../../utils/apiConfig'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
+	const navigate = useNavigate()
 	const [passwordVisible, setPasswordVisible] = useState(true)
 	const [rePasswordVisible, setRePasswordVisible] = useState(true)
+	const [name, setName] = useState('')
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+	const [checkPassword, setCheckPassword] = useState('')
+	const [number, setNumber] = useState('')
+	const [errorMessage, setErrorMessage] = useState('')
+
+	const handleRegister = async () => {
+		console.log(API_CONFIG.register)
+		if (password !== checkPassword) {
+			setErrorMessage('Parollar mos emas')
+			return
+		}
+		const data = {
+			name,
+			email,
+			password,
+			number,
+			brith_day: '2025-01-06',
+		}
+		console.log(data)
+		try {
+			await axios.post(API_CONFIG.register, data).then(res => {
+				console.log(res.data)
+				navigate('/login')
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	return (
 		<div className='flex items-center justify-center flex-col gap-10 p-6 mt-5'>
@@ -27,6 +61,7 @@ const Register = () => {
 							type='text'
 							id='name'
 							placeholder='Name'
+							onChange={e => setName(e.target.value)}
 							className='p-2 bg-[#fafafa] rounded-sm border border-solid border-[#00000012] text-sm outline-none'
 						/>
 					</div>
@@ -38,6 +73,19 @@ const Register = () => {
 							type='email'
 							id='email'
 							placeholder='Email'
+							onChange={e => setEmail(e.target.value)}
+							className='p-2 bg-[#fafafa] rounded-sm border border-solid border-[#00000012] text-sm outline-none'
+						/>
+					</div>
+					<div className='flex flex-col gap-1'>
+						<label htmlFor='email' className='text-slate-500 text-sm'>
+							Telefon raqamingizni kiriting
+						</label>
+						<input
+							type='text'
+							id='phone'
+							placeholder='Phone number'
+							onChange={e => setNumber(e.target.value)}
 							className='p-2 bg-[#fafafa] rounded-sm border border-solid border-[#00000012] text-sm outline-none'
 						/>
 					</div>
@@ -50,6 +98,7 @@ const Register = () => {
 								type={passwordVisible ? 'password' : 'text'}
 								id='password'
 								placeholder='Parol'
+								onChange={e => setPassword(e.target.value)}
 								className='text-sm outline-none w-full bg-transparent'
 							/>
 							<LuEye
@@ -77,6 +126,7 @@ const Register = () => {
 								type={rePasswordVisible ? 'password' : 'text'}
 								id='repassword'
 								placeholder='Parol'
+								onChange={e => setCheckPassword(e.target.value)}
 								className='text-sm outline-none w-full bg-transparent'
 							/>
 							<LuEye
@@ -94,15 +144,15 @@ const Register = () => {
 								onClick={() => setRePasswordVisible(true)}
 							/>
 						</span>
-					</div>
-					<div className='flex items-center gap-1 justify-center'>
-						<input type='checkbox' name='text' id='text' />
-						<label htmlFor='text' className='text-slate-500 text-sm'>
-							ommaviy oferta shartlarini qabul qilaman
-						</label>
+						{errorMessage && (
+							<p className='text-sm text-red-500'>{errorMessage}</p>
+						)}
 					</div>
 					<div className='w-full flex items-center justify-center'>
-						<button className='py-2 px-10 rounded-full bg-blue-700 text-white font-semibold'>
+						<button
+							className='py-2 px-10 rounded-full bg-blue-700 text-white font-semibold'
+							onClick={handleRegister}
+						>
 							Register
 						</button>
 					</div>
